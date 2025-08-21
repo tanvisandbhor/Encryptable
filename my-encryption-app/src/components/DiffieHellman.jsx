@@ -15,7 +15,7 @@ export default function DiffieHellman() {
 
   // load DH params from backend
   useEffect(() => {
-    fetch('http://localhost:3001/dh-params')
+   fetch(`${import.meta.env.VITE_API_URL}/encrypt`)
       .then((res) => res.json())
       .then((data) => {
         setPrime(data.prime);
@@ -28,7 +28,7 @@ export default function DiffieHellman() {
     setLoadingKeys(true);
     setError('');
     try {
-      const response = await fetch('http://localhost:3001/encrypt', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/encrypt`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ algorithm: 'diffie-hellman', otherParams: { op: 'generateKeys' } }),
@@ -61,7 +61,7 @@ export default function DiffieHellman() {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/encrypt', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/encrypt`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
