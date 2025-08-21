@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "my-encryption-app/package.json", "use": "@vercel/static-build" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "my-encryption-app/$1" }
+  ]
+}
