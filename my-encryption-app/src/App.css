@@ -1,0 +1,255 @@
+
+:root {
+  --primary: #70a1ff;
+  --primary-dark: #1e90ff;
+  --bg-dark: #121212;
+  --bg-card: rgba(31, 31, 31, 0.85);
+  --input-bg: rgba(43, 43, 43, 0.85);
+  --input-focus-bg: rgba(58, 58, 58, 0.95);
+  --text-light: #f0f0f0;
+  --text-muted: #a0a0a0;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  --radius: 12px;
+  --transition: 0.3s ease;
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+}
+
+/* Card-like App Container */
+.App {
+  max-width: 750px;
+  margin: 3rem auto;
+  padding: 2rem 3rem;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  animation: fadeIn 0.6s ease;
+}
+
+/* Title */
+.app-title {
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 2.3rem;
+  text-align: center;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+  letter-spacing: 1px;
+}
+
+/* Form Styling */
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  user-select: none;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--input-bg);
+  color: var(--text-light);
+  transition: var(--transition);
+    /* New: Make it a long horizontal rectangle */
+  width: 100%;       
+  max-width: 100%;   
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--primary);
+  background-color: var(--input-focus-bg);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* Mode Selection */
+.mode-selection {
+  display: flex;
+  gap: 3rem;
+  margin-top: 0.5rem;
+  user-select: none;
+}
+
+.mode-selection label {
+  cursor: pointer;
+}
+
+.radio-label {
+  margin-left: 0.4rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* Buttons */
+.btn-submit {
+  padding: 1rem 0;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-submit:hover {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(112, 161, 255, 0.5);
+}
+
+/* Result Section */
+.result-section {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#result-text {
+  background-color: var(--input-bg);
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  color: #d0d0d0;
+  min-height: 120px;
+  white-space: pre-wrap;
+  user-select: text;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
+}
+
+/* File Upload */
+.file-upload input[type="file"] {
+  margin-top: 0.3rem;
+  cursor: pointer;
+}
+
+.file-error {
+  color: #ff6b6b;
+  margin-top: 0.4rem;
+  font-weight: 600;
+}
+
+/* Result Actions */
+.result-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-copy, .btn-download {
+  background-color: var(--primary-dark);
+  color: white;
+  padding: 0.6rem 1.3rem;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-copy:hover, .btn-download:hover {
+  background-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn-copy:disabled, .btn-download:disabled {
+  background-color: #90caf9;
+  cursor: not-allowed;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.key-help-text {
+  color: #70a1ff;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  user-select: none;
+}
+.diffie-hellman-container button {
+  background-color: #4a90e2;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 250px;
+  display: block;
+}
+
+.diffie-hellman-container button:hover:not(:disabled) {
+  background-color: #357abd;
+}
+
+.diffie-hellman-container button:disabled {
+  background-color: #a0bcd8;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.diffie-hellman-container label {
+  font-weight: 600;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.diffie-hellman-container textarea {
+  width: 100%;
+  font-family: monospace, monospace;
+  font-size: 0.9rem;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  background-color: #605e5e;
+  box-sizing: border-box;
+}
