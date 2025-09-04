@@ -57,11 +57,16 @@ function App() {
       // Handle modern ciphers: send to backend
       try {
         const endpoint = mode === 'encrypt' ? '/encrypt' : '/decrypt';
-        const response = await fetch(`http://localhost:3001${endpoint}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ algorithm: cipher, text: plainText, key }),
-        });
+        const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
+
+        const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ algorithm: cipher, text: plainText, key }),
+});
+
+        
         const data = await response.json();
 
         if (response.ok) {

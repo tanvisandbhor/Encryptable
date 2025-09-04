@@ -23,7 +23,7 @@ router.post('/encrypt', async (req, res) => {
         result = rsa.encrypt(text);
         break;
       case 'diffie-hellman': {
-        // ✅ Patch applied here
+       
         const op = otherParams?.op || req.body.op;
 
         if (op === 'generateKeys') {
@@ -54,7 +54,7 @@ router.post('/encrypt', async (req, res) => {
 
     res.json({ result });
   } catch (err) {
-    console.error("Backend error:", err); // ✅ helps debug
+    console.error("Backend error:", err); //  helps debug
     res.status(500).json({ error: err.message });
   }
 });
